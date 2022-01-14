@@ -1,0 +1,56 @@
+---
+title: "my rmd"
+author: "Stacey Borrego"
+date: "1/14/2022"
+output: html_document
+---
+
+# Big Header
+##### Small Header
+
+This is **bold**.  
+This is *italicized*.
+<br>
+<br>
+
+The text that we write here shows up in our document. You can look the 
+[Rmarkdown Cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
+
+<a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">Rmarkdown Cheatsheet</a> to find more formatting options.
+
+
+```{bash}
+pwd
+```
+
+```{r eval=FALSE}
+analyze <- function(filename) {
+  # Plots the average, min, and max inflammation over time.
+  # Input is character string of a csv file.
+  dat <- read.csv(file = filename, header = FALSE)
+  avg_day_inflammation <- apply(dat, 2, mean)
+  plot(avg_day_inflammation,
+       col = "purple")
+}
+
+setwd("/Users/stacey/Desktop")
+
+filenames <- list.files(path = "data", 
+                        pattern = "inflammation", 
+                        full.names = TRUE)
+
+for (file in filenames[1:3]){
+  analyze(file)
+}
+```
+
+
+
+
+
+
+
+
+
+
+
